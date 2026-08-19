@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Atreus — Abrir rutina compartida</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        max-width: 520px;
+        margin: 0 auto;
+        padding: 48px 20px 64px;
+        line-height: 1.6;
+        color: #1a1a1a;
+        background: #ffffff;
+        text-align: center;
+      }
+      @media (prefers-color-scheme: dark) {
+        body {
+          color: #e6e6e6;
+          background: #141414;
+        }
+        a {
+          color: #7ab8ff;
+        }
+        .card {
+          background: #1e1e1e;
+          border-color: #333;
+        }
+        .code {
+          background: #141414;
+          border-color: #333;
+        }
+      }
+      h1 {
+        font-size: 22px;
+        margin: 0 0 6px;
+      }
+      p {
+        margin: 0 0 16px;
+      }
+      .card {
+        border: 1px solid #e2e2e2;
+        border-radius: 16px;
+        background: #fafafa;
+        padding: 28px 22px;
+        margin-top: 28px;
+      }
+      .code {
+        display: inline-block;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 18px;
+        letter-spacing: 2px;
+        border: 1px solid #e2e2e2;
+        border-radius: 10px;
+        background: #ffffff;
+        padding: 8px 14px;
+        margin-bottom: 20px;
+      }
+      .btn {
+        display: block;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 16px;
+        border-radius: 12px;
+        padding: 14px 18px;
+        margin: 10px 0 0;
+      }
+      .btn-primary {
+        background: #d8ff3e;
+        color: #101010;
+      }
+      .btn-secondary {
+        border: 1px solid #b9b9b9;
+        color: inherit;
+      }
+      .muted {
+        font-size: 13px;
+        opacity: 0.7;
+        margin-top: 22px;
+      }
+      .en {
+        opacity: 0.75;
+        font-size: 13px;
+      }
+      [hidden] {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Atreus</h1>
+    <p class="en">Rutina compartida · Shared routine</p>
+
+    <!-- Valid code: everything the visitor needs to get the routine into the app. -->
+    <div class="card" id="ok" hidden>
+      <div class="code" id="code"></div>
+      <p>
+        Abre este enlace en Atreus para añadir la rutina.<br />
+        <span class="en">Open this link in Atreus to add the routine.</span>
+      </p>
+      <a class="btn btn-primary" id="open" href="#">Abrir en Atreus / Open in Atreus</a>
+      <a
+        class="btn btn-secondary"
+        href="https://play.google.com/store/apps/details?id=com.nikkendev.atreus"
+        >Descargar Atreus / Get Atreus</a
+      >
+      <p class="muted">
+        Si no se abre sola, instala Atreus y vuelve a tocar el enlace.<br />
+        <span class="en">If it doesn't open, install Atreus and tap the link again.</span>
+      </p>
+    </div>
+
+    <!-- No code / malformed code: never pretend there is a routine to open. -->
+    <div class="card" id="bad" hidden>
+      <p>
+        Este enlace no lleva ninguna rutina.<br />
+        <span class="en">This link doesn't carry a routine.</span>
+      </p>
+      <p class="muted">
+        Pide a tu amigo que vuelva a compartirla desde Atreus.<br />
+        <span class="en">Ask your friend to share it again from Atreus.</span>
+      </p>
+    </div>
+
+    <p class="muted"><a href="../">Privacidad</a> · <a href="../terms.html">Términos</a></p>
+
+    <script>
+      // The code rides in the fragment (…/r/#K3F9Q2XRTV) so it never reaches GitHub's server
+      // logs; ?c= is accepted too, for links that got rewritten on the way. Same alphabet as
+      // `routine_links_code_shape` in the Supabase migration and `SHARE_CODE_RE` in the app:
+      // base32 without I/L/O/U. Anything else is treated as no code at all.
+      (function () {
+        var CODE_RE = /^[A-HJ-KM-NP-TV-Z0-9]{10}$/;
+        var fromHash = (location.hash || '').replace(/^#/, '');
+        var fromQuery = (/[?&]c=([^&]+)/.exec(location.search || '') || [])[1] || '';
+        var code = '';
+        try {
+          // Throws on a malformed escape (…/r/#%zz). Left uncaught it would abort the whole
+          // script and leave a blank page instead of the "no routine here" card.
+          code = decodeURIComponent(fromHash || fromQuery)
+            .trim()
+            .toUpperCase();
+        } catch (e) {
+          code = '';
+        }
+        if (!CODE_RE.test(code)) {
+          document.getElementById('bad').hidden = false;
+          return;
+        }
+        var deepLink = 'atreus://routine?c=' + code;
+        document.getElementById('code').textContent = code;
+        document.getElementById('open').href = deepLink;
+        document.getElementById('ok').hidden = false;
+        // Try to hand off immediately. Browsers that refuse a navigation without a user
+        // gesture simply ignore this, which is why the button above is always rendered
+        // rather than shown only after a timeout.
+        setTimeout(function () {
+          location.href = deepLink;
+        }, 250);
+      })();
+    </script>
+  </body>
+</html>
