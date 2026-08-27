@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atreus</title>
+<meta name="description" content="Atreus, the training log for people who take the gym seriously. Log every set, measure real progress, train with a plan that adapts to you.">
+<link rel="icon" href="logo-mark.png">
+
+<!-- Open Graph: sin esto, LinkedIn y WhatsApp muestran una tarjeta de solo texto. La
+     imagen DEBE ir con URL absoluta: el rastreador no tiene contexto de esta pagina. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Atreus — Gym Workout Log">
+<meta property="og:description" content="The training log for people who take the gym seriously. Log every set, measure real progress, train with a plan that adapts to you.">
+<meta property="og:image" content="https://nicolasromanblanco.github.io/atreus-privacy/atreus-og.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<link rel="stylesheet" href="t2.css">
+</head>
+<body>
+
+<div class="bg"></div>
+<div class="grain"></div>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand wm" href="#top"><img src="img/01.png" alt="Atreus">TREUS</a>
+    <nav class="nav-links">
+      <a href="#train" data-i18n="nav_train">Train</a>
+      <a href="#plan" data-i18n="nav_plan">Plan</a>
+      <a href="#progress" data-i18n="nav_progress">Progress</a>
+      <a href="#pro" data-i18n="nav_pro">Pro</a>
+      <a href="#custom" data-i18n="nav_style">Style</a>
+      <a href="#privacy" data-i18n="nav_privacy">Privacy</a>
+    </nav>
+    <div class="nav-right">
+      <div class="langtoggle" role="group" aria-label="Language">
+        <button id="lang-en" class="on" onclick="setLang('en')">EN</button>
+        <button id="lang-es" onclick="setLang('es')">ES</button>
+      </div>
+      <a class="playbtn nav-cta" href="https://play.google.com/store/apps/details?id=com.nikkendev.atreus&amp;referrer=utm_source%3Dweb%26utm_medium%3Dlanding%26utm_campaign%3Datreus_page" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.3 13 12l-9.4 9.7c-.3-.2-.5-.6-.5-1V3.3c0-.4.2-.8.5-1zM15 10 5.7 1.4 17.9 8.4 15 10zm2.9 3.6L5.7 20.6 15 14l2.9 1.6a1.4 1.4 0 0 1 0 2zM16.4 12l3.3-1.9c.9-.5.9-2.6 0-3.1L16.4 12z"/></svg>
+        <span><small data-i18n="get_on">Get it on</small><span class="pb-t">Google Play</span></span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow" data-i18n="hero_eyebrow">Training log &middot; Strength &amp; Hypertrophy</span>
+        <h1><span data-i18n="hero_h1a">Track your</span><br><span data-i18n="hero_h1b">training.</span><br><span class="g" data-i18n="hero_h1c">Own your progress.</span></h1>
+        <p class="hero-sub" data-i18n="hero_sub">Log every set in two taps and let the app handle the arithmetic, the progression and the memory.</p>
+        <div class="hero-cta">
+          <a class="playbtn" href="https://play.google.com/store/apps/details?id=com.nikkendev.atreus&amp;referrer=utm_source%3Dweb%26utm_medium%3Dlanding%26utm_campaign%3Datreus_page" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.3 13 12l-9.4 9.7c-.3-.2-.5-.6-.5-1V3.3c0-.4.2-.8.5-1zM15 10 5.7 1.4 17.9 8.4 15 10zm2.9 3.6L5.7 20.6 15 14l2.9 1.6a1.4 1.4 0 0 1 0 2zM16.4 12l3.3-1.9c.9-.5.9-2.6 0-3.1L16.4 12z"/></svg>
+            <span><small data-i18n="get_on">Get it on</small><span class="pb-t">Google Play</span></span>
+          </a>
+          <span class="free-note"><b data-i18n="free_a">Free.</b> <span data-i18n="free_b">Pro is optional.</span></span>
+        </div>
+      </div>
+      <div class="hero-phone">
+        <div class="phone"><img src="img/02.webp" alt="Atreus training hub with the active block" data-es="img/03.webp" width="300" height="533"></div>
+      </div>
+    </div>
+
+    <!-- STAT BAND -->
+    <div class="band">
+      <div class="wrap"><div class="band-in">
+        <div class="stat"><div class="n">167</div><div class="l" data-i18n="st_ex">Exercises with guides</div></div>
+        <div class="stat"><div class="n">11</div><div class="l" data-i18n="st_prog">Preset programs</div></div>
+        <div class="stat"><div class="n">6</div><div class="l" data-i18n="st_rank">Strength tiers</div></div>
+        <div class="stat"><div class="n">100<span class="u">%</span></div><div class="l" data-i18n="st_off">Offline-first</div></div>
+        <div class="stat"><div class="n">kg<span class="u">/</span>lb</div><div class="l" data-i18n="st_units">Your units</div></div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- TRAIN -->
+  <section id="train">
+    <div class="wrap">
+      <div class="feature rv">
+        <div class="f-media"><div class="phone"><img src="img/04.webp" alt="Logging a set during a session" data-es="img/05.webp" width="270" height="480"></div></div>
+        <div>
+          <span class="eyebrow" data-i18n="train_eye">Built for the gym floor</span>
+          <div class="sec-head"><h2 data-i18n="train_h">Two taps<br>per set. That's it.</h2></div>
+          <ul class="f-list">
+            <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span><span class="k" data-i18n="tr1k">Weight, reps and effort on one row.</span><span class="d" data-i18n="tr1d">RIR or RPE, your call. See what you did last time without leaving the session.</span></span></li>
+            <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span><span class="k" data-i18n="tr2k">Warm-ups, drop sets, rest-pause, supersets.</span><span class="d" data-i18n="tr2d">Every set type the serious lifter actually uses, logged cleanly.</span></span></li>
+            <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span><span class="k" data-i18n="tr3k">Rest timer, plate calculator, one-tap swaps.</span><span class="d" data-i18n="tr3d">A suggested warm-up ramp and instant exercise swaps when a machine is taken.</span></span></li>
+            <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span><span class="k" data-i18n="tr4k">Five modes, each asking only what fits.</span><span class="d" data-i18n="tr4d">Weighted, bodyweight, assisted, timed and cardio. Plus per-exercise notes for the seat hole you keep forgetting.</span></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLAN -->
+  <section id="plan">
+    <div class="wrap">
+      <div class="feature flip rv">
+        <div class="f-media"><div class="phone"><img src="img/06.webp" alt="Analytics home with the readiness check-in" data-es="img/07.webp" width="270" height="480"></div></div>
+        <div>
+          <span class="eyebrow" data-i18n="plan_eye">A plan that adapts to you</span>
+          <div class="sec-head"><h2 data-i18n="plan_h">The block<br>reads your data.</h2>
+            <p data-i18n="plan_p">Training blocks for strength or hypertrophy, with accumulation, intensification and deload weeks, and weights that move with your performance.</p></div>
+          <ul class="f-list">
+            <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span><span class="k" data-i18n="pl1k">Suggested weight and reps for every set.</span><span class="d" data-i18n="pl1d">Based on your previous performance and the effort you logged, not a fixed template.</span></span></li>
+            <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span><span class="k" data-i18n="pl2k">Readiness check-in.</span><span class="d" data-i18n="pl2d">Tell it how you slept and the session adjusts itself.</span></span></li>
+            <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span><span class="k" data-i18n="pl3k">Skip a day without polluting your history.</span><span class="d" data-i18n="pl3d">Or drop the plan entirely, free mode rotates your own routines with nothing on top.</span></span></li>
+          </ul>
+          <div class="chips">
+            <span class="chip" data-i18n="pl_c1">11 preset programs</span>
+            <span class="chip" data-i18n="pl_c2">3, 4 &amp; 5 days / week</span>
+            <span class="chip" data-i18n="pl_c3">Strength &amp; hypertrophy</span>
+            <span class="chip" data-i18n="pl_c4">Deload weeks</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRESS -->
+  <section id="progress">
+    <div class="wrap">
+      <div class="measure rv">
+        <div>
+          <span class="eyebrow" data-i18n="prog_eye">Progress you can measure</span>
+          <div class="sec-head"><h2 data-i18n="prog_h">Numbers that<br>tell the truth.</h2>
+            <p data-i18n="prog_p">Estimated 1RM, records per rep range and automatic PR detection, plus analytics per exercise, per muscle and overall.</p></div>
+          <div class="mini-cards">
+            <div class="mcard"><div class="n grn">e1RM</div><div class="l" data-i18n="pg_c1l">Estimated max</div><p data-i18n="pg_c1p">Tracked on the top set of every session, per rep range.</p></div>
+            <div class="mcard"><div class="n gold">PR</div><div class="l" data-i18n="pg_c2l">Auto-detected</div><p data-i18n="pg_c2p">The app flags a new record the moment you hit it.</p></div>
+            <div class="mcard"><div class="n grn">Vol</div><div class="l" data-i18n="pg_c3l">Weekly per muscle</div><p data-i18n="pg_c3p">Against its productive range, with tonnage and estimated calories.</p></div>
+            <div class="mcard"><div class="n grn">A/B</div><div class="l" data-i18n="pg_c4l">Compare blocks</div><p data-i18n="pg_c4p">Put two blocks side by side and see what actually changed.</p></div>
+          </div>
+        </div>
+        <div class="two-shot">
+          <div class="phone"><img src="img/08.webp" alt="Progression chart per exercise" data-es="img/09.webp" width="540" height="1200"></div>
+          <div class="phone"><img src="img/10.webp" alt="Weekly volume per muscle group" data-es="img/11.webp" width="540" height="1200"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIDES -->
+  <section id="guides">
+    <div class="wrap">
+      <div class="feature rv">
+        <div class="f-media"><div class="phone"><img src="img/12.webp" alt="Exercise technique guide" data-es="img/13.webp" width="270" height="480"></div></div>
+        <div>
+          <span class="eyebrow" data-i18n="gd_eye">167 exercises, each with a guide</span>
+          <div class="sec-head"><h2 data-i18n="gd_h">Know the lift,<br>not just the load.</h2>
+            <p data-i18n="gd_p">Every exercise ships a full guide, and a glossary for when someone drops "effective set" or "double progression".</p></div>
+          <div class="chips">
+            <span class="chip" data-i18n="gd_c1">Muscles worked</span>
+            <span class="chip" data-i18n="gd_c2">Biomechanics</span>
+            <span class="chip" data-i18n="gd_c3">Setup &amp; execution</span>
+            <span class="chip" data-i18n="gd_c4">Grip</span>
+            <span class="chip" data-i18n="gd_c5">Common mistakes</span>
+            <span class="chip" data-i18n="gd_c6">Breathing &amp; tempo</span>
+          </div>
+          <div class="chips" style="margin-top:22px">
+            <span class="chip"><b data-i18n="gd_car">Cardio in the same session,</b> <span data-i18n="gd_car2">treadmill, bike, rower, stair climber or rope, next to your lifting.</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RANK -->
+  <section id="rank">
+    <div class="wrap rv">
+      <div class="rank">
+        <div class="rank-grid">
+          <div>
+            <svg class="laurel" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M32 58V22M32 54c-9 0-15-6-16-15 9 0 15 5 16 15zM32 54c9 0 15-6 16-15-9 0-15 5-16 15zM32 40c-8 0-13-5-14-13 8 0 13 4 14 13zM32 40c8 0 13-5 14-13-8 0-13 4-14 13zM32 27c-6 0-10-4-11-10 6 0 10 3 11 10zM32 27c6 0 10-4 11-10-6 0-10 3-11 10z"/>
+              <path d="M32 20a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/>
+            </svg>
+            <span class="eyebrow" data-i18n="rk_eye">Train accompanied</span>
+            <div class="sec-head"><h2 data-i18n="rk_h">A rank earned<br>on your bodyweight.</h2>
+              <p data-i18n="rk_p">Six strength tiers, scored relative to your bodyweight, the same honest scale for everyone. Friends, a leaderboard for your circle, achievements and a shared activity feed.</p></div>
+            <div class="chips">
+              <span class="chip" data-i18n="rk_c1">Share routines by link</span>
+              <span class="chip" data-i18n="rk_c2">Community catalog</span>
+              <span class="chip" data-i18n="rk_c3">Avatar &amp; feed</span>
+            </div>
+            <div class="f-media rank-shot"><div class="phone"><img src="img/14.webp" alt="Strength rank per muscle group" data-es="img/14es.webp"></div></div>
+          </div>
+          <div>
+            <ul class="ladder">
+              <li class="rung top"><span class="rc" style="--m:url(img/15-crest.webp)"></span><span class="rn">Aether</span><span class="bar"><i style="--w:98%"></i></span><span class="pc">VI</span></li>
+              <li class="rung gold"><span class="rc" style="--m:url(img/16-crest.webp)"></span><span class="rn">Olympus</span><span class="bar"><i style="--w:90%"></i></span><span class="pc">V</span></li>
+              <li class="rung"><span class="rc" style="--m:url(img/17-crest.webp)"></span><span class="rn">Aret&eacute;</span><span class="bar"><i style="--w:78%"></i></span><span class="pc">IV</span></li>
+              <li class="rung you"><span class="rc" style="--m:url(img/18-crest.webp)"></span><span class="rn">Vigor</span><span class="bar"><i style="--w:62%"></i></span><span class="pc">III</span></li>
+              <li class="rung"><span class="rc" style="--m:url(img/19-crest.webp)"></span><span class="rn">Athleta</span><span class="bar"><i style="--w:34%"></i></span><span class="pc">II</span></li>
+              <li class="rung"><span class="rc" style="--m:url(img/20-crest.webp)"></span><span class="rn">Inceptio</span><span class="bar"><i style="--w:16%"></i></span><span class="pc">I</span></li>
+            </ul>
+            <p class="pro-note" style="margin-top:20px"><span data-i18n="rk_note">Scored per muscle group and overall.</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+<!-- PRO -->
+<section id="pro" class="pro">
+  <div class="wrap">
+    <div class="pro-grid rv">
+      <div>
+        <span class="eyebrow" data-i18n="pro_eye">Atreus Pro &middot; optional</span>
+        <div class="sec-head"><h2><span class="crown">Pro</span> <span data-i18n="pro_h">adds the AI layer.</span></h2>
+          <p data-i18n="pro_p">The essentials stay free, logging, history, blocks, analytics, sync, friends, ranks and unlimited custom exercises. Pro is the intelligence on top.</p></div>
+        <div class="two-shot" style="margin-top:30px"><div class="phone"><img src="img/21.webp" alt="AI Coach analysis" data-es="img/22.webp" width="540" height="1200"></div><div class="phone"><img src="img/23.webp" alt="Pro tools inside Analytics" data-es="img/24.webp" width="540" height="1200"></div></div>
+      </div>
+      <div class="pro-feats">
+        <div class="pf"><div class="h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 3v4M16 3v4M4 11h16"/></svg><span data-i18n="pf1h">Import any routine</span></div><p data-i18n="pf1p">Paste the text or snap a photo, of your notebook, a screenshot, your coach's sheet, and the AI builds it for you.</p></div>
+        <div class="pf"><div class="h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 0 1 5 5c0 2-1 3-1 5H8c0-2-1-3-1-5a5 5 0 0 1 5-5zM9 20h6M10 22h4"/></svg><span data-i18n="pf2h">AI Coach</span></div><p data-i18n="pf2p">A read of your progress and a chat for your questions, plus a full block built from your gear and your time.</p></div>
+        <div class="pf"><div class="h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-6.2-8.6"/><path d="M21 4v5h-5"/></svg><span data-i18n="pf3h">Instant substitute</span></div><p data-i18n="pf3p">Swap an exercise on the spot when the machine is busy or something aches.</p></div>
+        <div class="pf"><div class="h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 7-7"/><path d="M21 8v-.5"/><circle cx="7" cy="20" r="1"/></svg><span data-i18n="pf4h">Plateau watch</span></div><p data-i18n="pf4p">It pings you only when a lift stalls or a muscle drifts out of range.</p></div>
+        <div class="pf"><div class="h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H4z"/><path d="M8 20h8M4 9h16"/></svg><span data-i18n="pf5h">Auto block report</span></div><p data-i18n="pf5p">A written report when you close a block, plus goals with projections.</p></div>
+        <div class="pf"><div class="h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M12 4v16"/><circle cx="7.5" cy="9" r="1.3"/></svg><span data-i18n="pf6h">Photo overlay &amp; themes</span></div><p data-i18n="pf6p">Before/after with overlay, premium cards, colors, exclusive icons and a gold profile frame.</p></div>
+      </div>
+    </div>
+    <p class="pro-note"><b data-i18n="pro_price_b">Monthly subscription.</b> <span data-i18n="pro_price">Renews automatically, cancel anytime from Google Play.</span></p>
+  </div>
+</section>
+
+<!-- CUSTOMIZE -->
+<section id="custom" class="custom">
+  <div class="wrap rv">
+    <div class="cst-head-main">
+      <span class="eyebrow" data-i18n="cst_eye">Make the app yours</span>
+      <div class="sec-head"><h2><span data-i18n="cst_h">Wear your strength.</span> <span class="g" data-i18n="cst_h2">Your icon, your colors, your crest.</span></h2>
+        <p data-i18n="cst_p">Atreus is black and neon out of the box. Pro turns it into yours: a home-screen icon nobody else runs, the Elite rank crests, and a full deck of themes and accents.</p></div>
+    </div>
+
+    <!-- rank crests -->
+    <div class="cst-block">
+      <div class="cst-bhead">
+        <h3 data-i18n="cst_cr_h">Elite rank crests</h3>
+        <span class="pro-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span data-i18n="pill_pro">Pro</span></span>
+        <p data-i18n="cst_cr_p">Six tiers, six crests. Earn the rank on your bodyweight, then wear the Elite set across your profile, feed and leaderboard.</p>
+      </div>
+      <div class="crest-row">
+        <figure class="crest" style="--c:#8fa39a"><span class="ring"><img src="img/25.png" alt="Inceptio"></span><b>Inceptio</b><span class="tno" data-i18n="tier1">Tier I</span></figure>
+        <figure class="crest" style="--c:#c48a52"><span class="ring"><img src="img/26.png" alt="Athleta"></span><b>Athleta</b><span class="tno" data-i18n="tier2">Tier II</span></figure>
+        <figure class="crest" style="--c:#34e27a"><span class="ring"><img src="img/27.png" alt="Vigor"></span><b>Vigor</b><span class="tno" data-i18n="tier3">Tier III</span></figure>
+        <figure class="crest" style="--c:#c9d2d6"><span class="ring"><img src="img/28.png" alt="Arete"></span><b>Aret&eacute;</b><span class="tno" data-i18n="tier4">Tier IV</span></figure>
+        <figure class="crest" style="--c:#f5c518"><span class="ring"><img src="img/29.png" alt="Olympus"></span><b>Olympus</b><span class="tno" data-i18n="tier5">Tier V</span></figure>
+        <figure class="crest aether" style="--c:#c9b8ff"><span class="ring"><img src="img/30.png" alt="Aether"></span><b>Aether</b><span class="tno" data-i18n="tier6">Tier VI</span></figure>
+      </div>
+    </div>
+
+    <!-- app icons -->
+    <div class="cst-block">
+      <div class="cst-bhead">
+        <h3 data-i18n="cst_ic_h">App icons</h3>
+        <span class="pro-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span data-i18n="pill_pro2">Pro</span></span>
+        <p data-i18n="cst_ic_p">Swap the icon on your home screen. Classic ships free, six more unlock with Pro.</p>
+      </div>
+      <div class="icon-row">
+        <figure class="ic free"><div class="thumb"><img class="la" src="img/31.png" alt="Classic"></div><b data-i18n="ic_classic">Classic</b><span class="free-tag" data-i18n="free_tag">Free</span></figure>
+        <figure class="ic locked"><div class="thumb"><img src="img/32.png" alt="Aureo"><span class="lk"><svg class="plk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span></div><b>&Aacute;ureo</b></figure>
+        <figure class="ic locked"><div class="thumb"><img src="img/33.png" alt="Circuit"><span class="lk"><svg class="plk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span></div><b>Circuit</b></figure>
+        <figure class="ic locked"><div class="thumb"><img src="img/34.png" alt="Crystal"><span class="lk"><svg class="plk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span></div><b>Crystal</b></figure>
+        <figure class="ic locked"><div class="thumb"><img src="img/35.png" alt="Pixel"><span class="lk"><svg class="plk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span></div><b>Pixel</b></figure>
+        <figure class="ic locked"><div class="thumb"><img src="img/36.png" alt="Sakura"><span class="lk"><svg class="plk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span></div><b>Sakura</b></figure>
+        <figure class="ic locked"><div class="thumb"><img src="img/37.png" alt="Kawaii"><span class="lk"><svg class="plk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span></div><b>Kawaii</b></figure>
+      </div>
+    </div>
+
+    <!-- colors + themes -->
+    <div class="cst-two">
+      <div class="cst-panel">
+        <div class="cst-bhead sm"><h3 data-i18n="cst_ac_h">Accent color</h3><span class="mix-pill" data-i18n="some_free">Some free</span></div>
+        <div class="dot-grid">
+          <span class="dot sel" style="--d:#34e27a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <span class="dot" style="--d:#3f82f6"></span>
+          <span class="dot" style="--d:#a563f0"></span>
+          <span class="dot" style="--d:#ef5350"></span>
+          <span class="dot lk" style="--d:#b8860b"><svg class="plk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
+          <span class="dot lk" style="--d:#b23b4e"><svg class="plk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
+          <span class="dot lk" style="--d:#3f8fa0"><svg class="plk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
+          <span class="dot lk" style="--d:#b1932f"><svg class="plk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
+          <span class="dot lk rainbow"><svg class="plk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
+        </div>
+        <p class="cst-note" data-i18n="cst_ac_n">Four accents free. The rest, and every theme below, come with Pro.</p>
+      </div>
+      <div class="cst-panel">
+        <div class="cst-bhead sm"><h3 data-i18n="cst_th_h">Theme</h3><span class="mix-pill" data-i18n="some_free2">Some free</span></div>
+        <div class="theme-grid">
+          <span class="thm sel" style="--bg:#0a0b0c;--fg:#f2f4f1"><i></i><b data-i18n="th_dark">Dark</b></span>
+          <span class="thm" style="--bg:#f4f5f3;--fg:#14171a"><i></i><b data-i18n="th_light">Light</b></span>
+          <span class="thm lk" style="--bg:#0e1626;--fg:#9fb3d8"><i></i><svg class="plk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><b data-i18n="th_mid">Midnight</b></span>
+          <span class="thm lk" style="--bg:#1a1c1e;--fg:#c9ccce"><i></i><svg class="plk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><b data-i18n="th_graph">Graphite</b></span>
+          <span class="thm lk" style="--bg:#efe6d6;--fg:#5a4e39"><i></i><svg class="plk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><b data-i18n="th_sepia">Sepia</b></span>
+        </div>
+        <p class="cst-note" data-i18n="cst_th_n">Dark and Light are free. Midnight, Graphite and Sepia are Pro.</p>
+      </div>
+    </div>
+
+    <!-- premium CTA -->
+    <div class="pro-cta rv">
+      <div>
+        <span class="eyebrow" style="color:var(--gold)" data-i18n="cta_eye">Unlock the lot</span>
+        <h3 data-i18n="cta_h">One subscription. Every crest, every icon, every color.</h3>
+        <p data-i18n="cta_p">And the whole AI layer, the gold profile frame and the premium cards on top. Free stays genuinely free. Pro is where Atreus gets loud.</p>
+      </div>
+      <a class="playbtn" href="https://play.google.com/store/apps/details?id=com.nikkendev.atreus&amp;referrer=utm_source%3Dweb%26utm_medium%3Dlanding%26utm_campaign%3Datreus_page" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.3 13 12l-9.4 9.7c-.3-.2-.5-.6-.5-1V3.3c0-.4.2-.8.5-1zM15 10 5.7 1.4 17.9 8.4 15 10zm2.9 3.6L5.7 20.6 15 14l2.9 1.6a1.4 1.4 0 0 1 0 2zM16.4 12l3.3-1.9c.9-.5.9-2.6 0-3.1L16.4 12z"/></svg>
+        <span><small data-i18n="get_on">Get it on</small><span class="pb-t">Google Play</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- PRIVACY -->
+<section id="privacy">
+  <div class="wrap rv">
+    <span class="eyebrow" data-i18n="pv_eye">Your data, on your phone</span>
+    <div class="sec-head"><h2 data-i18n="pv_h">Yours. Local. Portable.</h2></div>
+    <div class="priv-grid">
+      <div class="pcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.5 3 13a9 9 0 0 0 18 0l-2-.5"/><path d="M12 3v10M8 9l4 4 4-4"/></svg><h4 data-i18n="pv1h">Works offline</h4><p data-i18n="pv1p">Everything is saved on the phone and syncs when there's a connection.</p></div>
+      <div class="pcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 17.6A4 4 0 0 0 18 10h-1.3A7 7 0 1 0 5 16"/><path d="M12 12v9M8 17l4 4 4-4"/></svg><h4 data-i18n="pv2h">Backup &amp; restore</h4><p data-i18n="pv2p">Cloud backup, restore and CSV export whenever you want out.</p></div>
+      <div class="pcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h10M4 12h16M4 17h7"/><path d="M18 5l3 2-3 2"/></svg><h4 data-i18n="pv3h">Come from another app</h4><p data-i18n="pv3p">Import your history from a Strong, Hevy or FitNotes CSV.</p></div>
+      <div class="pcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg><h4 data-i18n="pv4h">Widget &amp; Health Connect</h4><p data-i18n="pv4p">A home-screen widget and sync with Health Connect.</p></div>
+      <div class="pcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg><h4 data-i18n="pv5h">Body tracking</h4><p data-i18n="pv5p">Weight, tape measurements and progress photos, your photos stay on the phone.</p></div>
+      <div class="pcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M2 12h20M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><h4 data-i18n="pv6h">English &amp; Spanish</h4><p data-i18n="pv6p">Both languages, kg or lb, cm or in.</p></div>
+    </div>
+    <div class="lock-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><span data-i18n="pv_lock">Your bodyweight and your sex never leave the device.</span></div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="wrap rv">
+    <h2><span data-i18n="fin_h1">Start your</span> <span class="g" data-i18n="fin_h2">log.</span></h2>
+    <p data-i18n="fin_p">Free to start. The record is yours, on your phone, from the first set.</p>
+    <div class="hero-cta">
+      <a class="playbtn" href="https://play.google.com/store/apps/details?id=com.nikkendev.atreus&amp;referrer=utm_source%3Dweb%26utm_medium%3Dlanding%26utm_campaign%3Datreus_page" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.3 13 12l-9.4 9.7c-.3-.2-.5-.6-.5-1V3.3c0-.4.2-.8.5-1zM15 10 5.7 1.4 17.9 8.4 15 10zm2.9 3.6L5.7 20.6 15 14l2.9 1.6a1.4 1.4 0 0 1 0 2zM16.4 12l3.3-1.9c.9-.5.9-2.6 0-3.1L16.4 12z"/></svg>
+        <span><small data-i18n="get_on">Get it on</small><span class="pb-t">Google Play</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand wm" href="#top"><img src="img/38.png" alt="Atreus">TREUS</a>
+        <p data-i18n="foot_tag">The training log for people who take the gym seriously.</p>
+        <p style="margin-top:14px"><a class="mail" href="mailto:atreus.app@gmail.com">atreus.app@gmail.com</a></p>
+      </div>
+      <div class="foot-links">
+        <a href="https://play.google.com/store/apps/details?id=com.nikkendev.atreus&amp;referrer=utm_source%3Dweb%26utm_medium%3Dlanding%26utm_campaign%3Datreus_page" target="_blank" rel="noopener" data-i18n="foot_play">Download on Google Play</a>
+        <a href="#train" data-i18n="nav_train">Train</a>
+        <a href="#plan" data-i18n="nav_plan">Plan</a>
+        <a href="#pro" data-i18n="nav_pro">Pro</a>
+        <a href="#privacy" data-i18n="nav_privacy">Privacy</a>
+        <a href="index.html" data-i18n="foot_pp">Privacy Policy</a>
+        <a href="terms.html" data-i18n="foot_tc">Terms and Conditions</a>
+        <a href="delete-account.html" data-i18n="foot_del">Delete account</a>
+      </div>
+    </div>
+    <div class="disclaimer">
+      <span data-i18n="disc">Atreus offers training guidance, not medical advice. Consult a professional before starting a program.</span>
+      <span class="mono">&copy; 2026 Atreus</span>
+    </div>
+  </div>
+</footer>
+
+<script src="t3.js" defer></script>
+</body>
+</html>
