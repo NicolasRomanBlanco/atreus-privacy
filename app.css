@@ -36,7 +36,11 @@ a {
   text-decoration: none;
 }
 img {
+  /* height:auto NO es opcional: los <img> llevan width/height en el HTML (para que el
+     navegador reserve el hueco y no salte el layout), asi que al limitar el ancho la altura
+     se quedaria clavada en 960px y la imagen saldria estirada a lo alto y estrecha. */
   max-width: 100%;
+  height: auto;
   display: block;
 }
 h1,
@@ -188,13 +192,19 @@ h3 {
 
 /* ---------- héroe ---------- */
 .hero {
-  padding: 62px 0 30px;
+  padding: 44px 0 30px;
 }
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 54px;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
   align-items: center;
+}
+/* La captura es un 9:16 completo: a ancho libre se come 900px de alto y deja el titular
+   flotando en un hueco vacío. Se le pone techo y el héroe recupera la proporción. */
+.hero .col-img {
+  max-width: 400px;
+  margin-left: auto;
 }
 .hero h1 {
   font-size: clamp(44px, 6.4vw, 78px);
