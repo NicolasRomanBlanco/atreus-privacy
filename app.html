@@ -183,9 +183,9 @@
   .mcard .n.gold{color:var(--gold)} .mcard .n.grn{color:var(--green)}
   .mcard .l{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-mute);margin-top:8px}
   .mcard p{margin:10px 0 0;font-size:14.5px;color:var(--fg-dim);line-height:1.5}
-  .two-shot{display:flex;gap:18px;justify-content:center}
-  .two-shot .phone{--pw:210px}.two-shot .phone:nth-child(2){margin-top:44px}
-  @media(max-width:860px){.measure{grid-template-columns:1fr;gap:36px}.two-shot .phone{--pw:170px}}
+  .two-shot{display:flex;gap:10px;justify-content:center}
+  .two-shot .phone{--pw:270px}.two-shot .phone:nth-child(2){margin-top:44px}
+  @media(max-width:860px){.measure{grid-template-columns:1fr;gap:36px}}
 
   /* rank ladder */
   .rank{position:relative;background:
@@ -383,7 +383,7 @@
   .es-only{display:none!important}
   html[lang="es"] .es-only{display:block!important}
   .rank-shot{margin-top:34px}
-  .rank-shot .phone{--pw:238px;margin:0}
+  .rank-shot .phone{--pw:270px;margin:0}
   @media(max-width:860px){.rank-shot .phone{margin:0 auto}}
   /* Tema claro: la foto del héroe y el grano están pensados para fondo negro. */
   html.lightskin .hero-bg{opacity:.25}
@@ -403,6 +403,10 @@
      y en escritorio no se aplicaba, con Aether en oro y el resto en gris. */
   #rank .rung .rn{color:var(--green)}
   #rank .rung.top .rn,#rank .rung.gold .rn{font-weight:600}
+  @media(max-width:760px){
+    .two-shot{flex-direction:column;align-items:center;gap:18px}
+    .two-shot .phone:nth-child(2){margin-top:0}
+  }
 </style>
 
 <div class="bg"></div>
