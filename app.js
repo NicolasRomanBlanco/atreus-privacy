@@ -1,4 +1,3 @@
-
 const I18N={
  es:{
   nav_style:"Estilo",
