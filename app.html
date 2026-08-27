@@ -29,6 +29,7 @@
     --fg-mute:#5c635d;
     --green:#34e27a;
     --green-soft:color-mix(in srgb, var(--green) 52%, #ffffff);
+        --accent-ink:var(--green);
     --green-deep:color-mix(in srgb, var(--green) 20%, #06110b);
     --green-line:color-mix(in srgb, var(--green) 30%, transparent);
     --gold:#f5c518;
@@ -55,7 +56,7 @@
   .mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
   .eyebrow{
     font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-weight:500;
-    letter-spacing:.28em;text-transform:uppercase;color:var(--green);
+    letter-spacing:.28em;text-transform:uppercase;color:var(--accent-ink);
   }
   .eyebrow.dim{color:var(--fg-mute)}
 
@@ -99,7 +100,7 @@
   .playbtn small{display:block;font-size:10.5px;font-weight:600;opacity:.72;letter-spacing:.02em;line-height:1}
   .playbtn .pb-t{line-height:1.05}
   .playbtn.ghost{background:transparent;color:var(--fg);border:1px solid var(--line-2)}
-  .playbtn.ghost:hover{border-color:var(--green);box-shadow:none}
+  .playbtn.ghost:hover{border-color:var(--accent-ink);box-shadow:none}
   @media(max-width:820px){.nav-links{display:none}.playbtn.nav-cta{display:none}}
 
   /* ---------- hero ---------- */
@@ -115,7 +116,7 @@
   .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
   .hero h1{font-family:"Big Shoulders Display",sans-serif;font-weight:800;
     text-transform:uppercase;font-size:clamp(52px,8.5vw,104px);line-height:.9;letter-spacing:.005em;margin:20px 0 0}
-  .hero h1 .g{color:var(--green)}
+  .hero h1 .g{color:var(--accent-ink)}
   .hero-sub{font-size:20px;color:var(--fg-dim);max-width:30ch;margin:26px 0 0}
   .hero-cta{display:flex;align-items:center;gap:16px;margin-top:34px;flex-wrap:wrap}
   .free-note{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--fg-mute);letter-spacing:.04em}
@@ -147,7 +148,7 @@
   .stat{padding:26px 20px;border-left:1px solid var(--line);text-align:center}
   .stat:first-child{border-left:0}
   .stat .n{font-family:"Big Shoulders Display",sans-serif;font-weight:700;font-size:40px;color:var(--fg);line-height:1;letter-spacing:.01em}
-  .stat .n .u{color:var(--green);font-size:24px}
+  .stat .n .u{color:var(--accent-ink);font-size:24px}
   .stat .l{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-mute);margin-top:9px}
   @media(max-width:820px){.band-in{grid-template-columns:repeat(2,1fr)}.stat:nth-child(odd){border-left:0}.stat{border-top:1px solid var(--line)}.stat:nth-child(-n+2){border-top:0}}
 
@@ -166,7 +167,7 @@
   .f-list li:first-child{border-top:0}
   .f-list .k{font-weight:600;color:var(--fg)}
   .f-list .d{color:var(--fg-dim);font-size:15.5px;display:block;margin-top:2px;line-height:1.5}
-  .tick{flex:none;width:22px;height:22px;margin-top:3px;color:var(--green)}
+  .tick{flex:none;width:22px;height:22px;margin-top:3px;color:var(--accent-ink)}
   @media(max-width:860px){.feature,.feature.flip{grid-template-columns:1fr;gap:36px}.feature.flip .f-media{order:0}}
 
   /* chips row */
@@ -180,7 +181,7 @@
   .mini-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
   .mcard{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px}
   .mcard .n{font-family:"Big Shoulders Display",sans-serif;font-size:34px;font-weight:700;letter-spacing:.01em}
-  .mcard .n.gold{color:var(--gold)} .mcard .n.grn{color:var(--green)}
+  .mcard .n.gold{color:var(--gold)} .mcard .n.grn{color:var(--accent-ink)}
   .mcard .l{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-mute);margin-top:8px}
   .mcard p{margin:10px 0 0;font-size:14.5px;color:var(--fg-dim);line-height:1.5}
   .two-shot{display:flex;gap:10px;justify-content:center}
@@ -198,10 +199,10 @@
   .rung .bar{height:12px;border-radius:99px;background:var(--panel-3);overflow:hidden;position:relative}
   .rung .bar i{position:absolute;inset:0;width:var(--w);background:linear-gradient(90deg,color-mix(in srgb, var(--green) 62%, #000),var(--green));border-radius:99px}
   .rung .pc{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--fg-mute)}
-  .rung.you .rn{color:var(--green);font-weight:600}
+  .rung.you .rn{color:var(--accent-ink);font-weight:600}
   .rung.top .rn{color:var(--gold);font-weight:600}
   .rung.top .bar i{background:linear-gradient(90deg,#8a6d0a,var(--gold))}
-  .laurel{color:var(--green);opacity:.9;width:60px;height:60px}
+  .laurel{color:var(--accent-ink);opacity:.9;width:60px;height:60px}
   @media(max-width:860px){.rank-grid{grid-template-columns:1fr;gap:34px}.rank{padding:30px}}
 
   /* pro band */
@@ -224,7 +225,7 @@
   /* privacy */
   .priv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
   .pcard{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
-  .pcard svg{width:24px;height:24px;color:var(--green);margin-bottom:12px}
+  .pcard svg{width:24px;height:24px;color:var(--accent-ink);margin-bottom:12px}
   .pcard h4{margin:0;font-size:16px;font-weight:600}
   .pcard p{margin:8px 0 0;font-size:14.5px;color:var(--fg-dim);line-height:1.5}
   .lock-note{display:flex;gap:12px;align-items:center;margin-top:24px;padding:16px 20px;
@@ -236,7 +237,7 @@
   .final{text-align:center;padding:110px 0}
   .final h2{font-family:"Big Shoulders Display",sans-serif;font-weight:800;text-transform:uppercase;
     font-size:clamp(42px,7vw,88px);line-height:.9}
-  .final h2 .g{color:var(--green)}
+  .final h2 .g{color:var(--accent-ink)}
   .final p{color:var(--fg-dim);font-size:19px;margin:22px auto 0;max-width:44ch}
   .final .hero-cta{justify-content:center;margin-top:38px}
 
@@ -273,14 +274,14 @@
       linear-gradient(180deg,color-mix(in srgb, var(--green) 8%, var(--ink)),var(--ink));
     border-top:1px solid var(--line)}
   .cst-head-main{max-width:720px}
-  .cst-head-main .sec-head h2 .g{color:var(--green)}
+  .cst-head-main .sec-head h2 .g{color:var(--accent-ink)}
   .pro-pill{display:inline-flex;align-items:center;gap:6px;font-family:"IBM Plex Mono",monospace;
     font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#0a0b0c;font-weight:600;
     background:linear-gradient(180deg,#ffdc55,#f5c518);border-radius:999px;padding:5px 12px}
   .pro-pill svg{width:12px;height:12px;stroke:#0a0b0c}
   .mix-pill{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
     color:var(--green-soft);border:1px solid var(--green-line);border-radius:999px;padding:4px 11px}
-  .free-tag{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+  .free-tag{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink)}
 
   .cst-block{margin-top:52px}
   .cst-bhead{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:24px}
@@ -320,7 +321,7 @@
 
   .ic .thumb .la{position:absolute;left:22%;top:22%;width:56%;height:56%;object-fit:contain;
     filter:drop-shadow(0 0 10px rgba(245,197,24,.35))}
-  .ic .thumb .ca{width:52%;height:52%;position:absolute;left:24%;top:24%;color:var(--green);
+  .ic .thumb .ca{width:52%;height:52%;position:absolute;left:24%;top:24%;color:var(--accent-ink);
     filter:drop-shadow(0 0 10px color-mix(in srgb, var(--green) 60%, transparent))}
   .ic.locked .thumb::after{content:"";position:absolute;inset:0;background:rgba(4,6,5,.34)}
   .ic .lk{position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:8px;
@@ -353,7 +354,7 @@
   .thm i::before{content:"";position:absolute;left:12px;top:14px;width:26px;height:9px;border-radius:99px;background:var(--fg);opacity:.85}
   .thm i::after{content:"";position:absolute;left:12px;top:28px;width:44px;height:6px;border-radius:99px;background:var(--fg);opacity:.4}
   .thm b{display:block;font-size:12.5px;font-weight:600;text-align:center;margin-top:8px}
-  .thm.sel{border-color:var(--green);box-shadow:0 0 0 1px var(--green)}
+  .thm.sel{border-color:var(--accent-ink);box-shadow:0 0 0 1px var(--green)}
   .thm .plk{position:absolute;top:7px;right:7px;width:14px;height:14px;stroke:#fff;z-index:2;
     filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))}
   .thm.lk i::after{opacity:.4}
@@ -376,7 +377,7 @@
   #rank .rung{grid-template-columns:30px 84px 1fr auto;gap:13px}
   #rank .rung .rc{width:26px;height:26px;background:var(--green);-webkit-mask:var(--m) center/contain no-repeat;mask:var(--m) center/contain no-repeat}
   #rank .rung.top .rc,#rank .rung.gold .rc{background:var(--gold)}
-  @media(max-width:520px){#rank .rung{grid-template-columns:26px 66px 1fr auto;gap:10px}#rank .rung .rn{font-size:12px;color:var(--green)}
+  @media(max-width:520px){#rank .rung{grid-template-columns:26px 66px 1fr auto;gap:10px}#rank .rung .rn{font-size:12px;color:var(--accent-ink)}
   #rank .rung.top .rn,#rank .rung.gold .rn{font-weight:600}}
 
   /* spanish-only rank screenshot */
@@ -395,13 +396,17 @@
      que elige el usuario se respeta. */
   /* Patrón `accentSoftInk` de la app: en paletas claras la tinta pasa al color de
      texto y el color lo lleva el fondo. El acento en sí NO se corrige. */
-  html.lightskin{--green-soft:var(--fg)}
+  html.lightskin{--accent-ink:color-mix(in srgb, var(--green) 55%, #06120b);--green-soft:var(--accent-ink);
+    /* Superficie teñida: en claro el color lo lleva el FONDO y la tinta es legible encima,
+       que es el patrón `accentSoft`/`accentSoftInk` de la app. Sobre base oscura se quedaba
+       negra con letra oscura encima. */
+    --green-deep:color-mix(in srgb, var(--green) 14%, var(--panel))}
   /* La viñeta negra que separa el móvil del fondo sólo tiene sentido sobre negro. */
   html.lightskin .hero-phone::before{opacity:.16}
   /* Los nombres de rango llevan SIEMPRE el acento (el oro se queda en el escudo).
      Va al final y sin envolver: la primera versión cayó dentro de un @media(max-width:520px)
      y en escritorio no se aplicaba, con Aether en oro y el resto en gris. */
-  #rank .rung .rn{color:var(--green)}
+  #rank .rung .rn{color:var(--accent-ink)}
   #rank .rung.top .rn,#rank .rung.gold .rn{font-weight:600}
   @media(max-width:760px){
     .two-shot{flex-direction:column;align-items:center;gap:18px}
