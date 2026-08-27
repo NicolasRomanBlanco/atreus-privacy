@@ -207,7 +207,7 @@
   /* pro band */
   .pro{background:
       radial-gradient(60% 80% at 85% 0%, rgba(245,197,24,.10), transparent 60%),
-      linear-gradient(180deg,#0b0a06,#0a0b0c);
+      linear-gradient(180deg,color-mix(in srgb, var(--gold) 7%, var(--ink)),var(--ink));
     border-top:1px solid rgba(245,197,24,.20);border-bottom:1px solid rgba(245,197,24,.14)}
   .pro .eyebrow{color:var(--gold)}
   .pro .sec-head h2 .crown{color:var(--gold)}
@@ -270,7 +270,7 @@
   .custom{background:
       radial-gradient(52% 68% at 10% 0%, color-mix(in srgb, var(--green) 9%, transparent), transparent 60%),
       radial-gradient(52% 70% at 92% 6%, rgba(245,197,24,.10), transparent 60%),
-      linear-gradient(180deg,#070f0b,#0a0b0c);
+      linear-gradient(180deg,color-mix(in srgb, var(--green) 8%, var(--ink)),var(--ink));
     border-top:1px solid var(--line)}
   .cst-head-main{max-width:720px}
   .cst-head-main .sec-head h2 .g{color:var(--green)}
@@ -390,6 +390,14 @@
   html.lightskin .nav-in{background:color-mix(in srgb, var(--ink) 86%, transparent)}
   /* El monograma es plata sobre transparente: en claro hay que invertirlo o desaparece. */
   html.lightskin .brand img{filter:invert(1) brightness(.55)}
+  /* El acento es un verde pensado para fondo negro: como TEXTO sobre blanco se lee mal,
+     así que en claro se oscurece. El acento en sí (botones, barras) no se toca — el color
+     que elige el usuario se respeta. */
+  html.lightskin{--green-soft:color-mix(in srgb, var(--green) 68%, #04150c)}
+  html.lightskin .eyebrow{color:color-mix(in srgb, var(--green) 68%, #04150c)}
+  html.lightskin .hero h1 .g{color:color-mix(in srgb, var(--green) 82%, #04150c)}
+  /* La viñeta negra que separa el móvil del fondo sólo tiene sentido sobre negro. */
+  html.lightskin .hero-phone::before{opacity:.16}
 </style>
 
 <div class="bg"></div>
