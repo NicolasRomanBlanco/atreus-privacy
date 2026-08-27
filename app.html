@@ -73,7 +73,7 @@
 
   /* ---------- nav ---------- */
   header.nav{position:sticky;top:0;z-index:50;
-    backdrop-filter:blur(14px);background:rgba(0,0,0,.62);
+    backdrop-filter:blur(14px);background:color-mix(in srgb, var(--ink) 62%, transparent);
     border-bottom:1px solid var(--line);}
   .nav-in{max-width:var(--maxw);margin:0 auto;padding:14px 24px;
     display:flex;align-items:center;gap:22px}
@@ -374,9 +374,10 @@
   @media(max-width:720px){.pro-cta{padding:26px 24px}}
 
   #rank .rung{grid-template-columns:30px 84px 1fr auto;gap:13px}
-  #rank .rung .rc{width:26px;height:26px;object-fit:contain;filter:drop-shadow(0 0 6px rgba(255,255,255,.12))}
+  #rank .rung .rc{width:26px;height:26px;background:var(--green);-webkit-mask:var(--m) center/contain no-repeat;mask:var(--m) center/contain no-repeat}
+  #rank .rung.top .rc,#rank .rung.gold .rc{background:var(--gold)}
   @media(max-width:520px){#rank .rung{grid-template-columns:26px 66px 1fr auto;gap:10px}#rank .rung .rn{font-size:12px;color:var(--green)}
-  #rank .rung.top .rn,#rank .rung.gold .rn{color:var(--gold);font-weight:600}}
+  #rank .rung.top .rn,#rank .rung.gold .rn{font-weight:600}}
 
   /* spanish-only rank screenshot */
   .es-only{display:none!important}
@@ -387,17 +388,21 @@
   /* Tema claro: la foto del héroe y el grano están pensados para fondo negro. */
   html.lightskin .hero-bg{opacity:.25}
   html.lightskin .grain{background-image:radial-gradient(rgba(0,0,0,.05) 1px, transparent 1px)}
-  html.lightskin .nav-in{background:color-mix(in srgb, var(--ink) 86%, transparent)}
   /* El monograma es plata sobre transparente: en claro hay que invertirlo o desaparece. */
   html.lightskin .brand img{filter:invert(1) brightness(.55)}
   /* El acento es un verde pensado para fondo negro: como TEXTO sobre blanco se lee mal,
      así que en claro se oscurece. El acento en sí (botones, barras) no se toca — el color
      que elige el usuario se respeta. */
-  html.lightskin{--green-soft:color-mix(in srgb, var(--green) 68%, #04150c)}
-  html.lightskin .eyebrow{color:color-mix(in srgb, var(--green) 68%, #04150c)}
-  html.lightskin .hero h1 .g{color:color-mix(in srgb, var(--green) 82%, #04150c)}
+  /* Patrón `accentSoftInk` de la app: en paletas claras la tinta pasa al color de
+     texto y el color lo lleva el fondo. El acento en sí NO se corrige. */
+  html.lightskin{--green-soft:var(--fg)}
   /* La viñeta negra que separa el móvil del fondo sólo tiene sentido sobre negro. */
   html.lightskin .hero-phone::before{opacity:.16}
+  /* Los nombres de rango llevan SIEMPRE el acento (el oro se queda en el escudo).
+     Va al final y sin envolver: la primera versión cayó dentro de un @media(max-width:520px)
+     y en escritorio no se aplicaba, con Aether en oro y el resto en gris. */
+  #rank .rung .rn{color:var(--green)}
+  #rank .rung.top .rn,#rank .rung.gold .rn{font-weight:600}
 </style>
 
 <div class="bg"></div>
@@ -576,12 +581,12 @@
           </div>
           <div>
             <ul class="ladder">
-              <li class="rung top"><img class="rc" src="img/15-crest.webp" alt=""><span class="rn">Aether</span><span class="bar"><i style="--w:98%"></i></span><span class="pc">VI</span></li>
-              <li class="rung gold"><img class="rc" src="img/16-crest.webp" alt=""><span class="rn">Olympus</span><span class="bar"><i style="--w:90%"></i></span><span class="pc">V</span></li>
-              <li class="rung"><img class="rc" src="img/17-crest.webp" alt=""><span class="rn">Aret&eacute;</span><span class="bar"><i style="--w:78%"></i></span><span class="pc">IV</span></li>
-              <li class="rung you"><img class="rc" src="img/18-crest.webp" alt=""><span class="rn">Vigor</span><span class="bar"><i style="--w:62%"></i></span><span class="pc">III</span></li>
-              <li class="rung"><img class="rc" src="img/19-crest.webp" alt=""><span class="rn">Athleta</span><span class="bar"><i style="--w:34%"></i></span><span class="pc">II</span></li>
-              <li class="rung"><img class="rc" src="img/20-crest.webp" alt=""><span class="rn">Inceptio</span><span class="bar"><i style="--w:16%"></i></span><span class="pc">I</span></li>
+              <li class="rung top"><span class="rc" style="--m:url(img/15-crest.webp)"></span><span class="rn">Aether</span><span class="bar"><i style="--w:98%"></i></span><span class="pc">VI</span></li>
+              <li class="rung gold"><span class="rc" style="--m:url(img/16-crest.webp)"></span><span class="rn">Olympus</span><span class="bar"><i style="--w:90%"></i></span><span class="pc">V</span></li>
+              <li class="rung"><span class="rc" style="--m:url(img/17-crest.webp)"></span><span class="rn">Aret&eacute;</span><span class="bar"><i style="--w:78%"></i></span><span class="pc">IV</span></li>
+              <li class="rung you"><span class="rc" style="--m:url(img/18-crest.webp)"></span><span class="rn">Vigor</span><span class="bar"><i style="--w:62%"></i></span><span class="pc">III</span></li>
+              <li class="rung"><span class="rc" style="--m:url(img/19-crest.webp)"></span><span class="rn">Athleta</span><span class="bar"><i style="--w:34%"></i></span><span class="pc">II</span></li>
+              <li class="rung"><span class="rc" style="--m:url(img/20-crest.webp)"></span><span class="rn">Inceptio</span><span class="bar"><i style="--w:16%"></i></span><span class="pc">I</span></li>
             </ul>
             <p class="pro-note" style="margin-top:20px"><span data-i18n="rk_note">Scored per muscle group and overall.</span></p>
           </div>
